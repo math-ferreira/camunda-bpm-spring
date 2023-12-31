@@ -1,0 +1,56 @@
+{
+  "components": [
+    {
+      "label": "Month reference",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_0jxf50n",
+        "columns": 4
+      },
+      "id": "Field_0gvlqt7",
+      "key": "monthReference",
+      "readonly": true
+    },
+    {
+      "label": "Invoice amount",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_0jxf50n",
+        "columns": 3
+      },
+      "id": "Field_0gg6o6f",
+      "key": "invoiceAmount"
+    },
+    {
+      "label": "Amount to pay",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0e3gay7",
+        "columns": null
+      },
+      "id": "Field_0fweonh",
+      "key": "amountToPay",
+      "description": "Put the amount you want to pay"
+    },
+    {
+      "action": "submit",
+      "label": "Pay",
+      "type": "button",
+      "layout": {
+        "row": "Row_13cob2k",
+        "columns": null
+      },
+      "id": "Field_05a1bjh",
+      "properties": {}
+    }
+  ],
+  "type": "default",
+  "id": "Form_1a2cbh9",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.18.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.20.0",
+  "schemaVersion": 13
+}

@@ -1,51 +1,103 @@
 {
   "components": [
     {
-      "label": "Month reference",
-      "type": "textarea",
-      "layout": {
-        "row": "Row_0jxf50n",
-        "columns": 4
-      },
-      "id": "Field_0gvlqt7",
-      "key": "monthReference",
-      "readonly": true
-    },
-    {
-      "label": "Invoice amount",
+      "label": "Month / Year",
       "type": "textarea",
       "layout": {
         "row": "Row_0jxf50n",
         "columns": 3
       },
-      "id": "Field_0gg6o6f",
-      "key": "invoiceAmount"
+      "id": "Field_0gvlqt7",
+      "key": "monthYearReference",
+      "readonly": true,
+      "disabled": true
     },
     {
-      "label": "Amount to pay",
+      "label": "Invoice total amount",
       "type": "textfield",
       "layout": {
-        "row": "Row_0e3gay7",
-        "columns": null
+        "row": "Row_0jxf50n",
+        "columns": 3
       },
-      "id": "Field_0fweonh",
-      "key": "amountToPay",
-      "description": "Put the amount you want to pay"
+      "id": "Field_02dje03",
+      "key": "invoiceAmount",
+      "description": "Here is the total amount was expeted to pay for this current month",
+      "disabled": true,
+      "readonly": true,
+      "appearance": {
+        "suffixAdorner": "EUR"
+      }
     },
     {
-      "action": "submit",
-      "label": "Pay",
-      "type": "button",
+      "label": "Invoice paid amount",
+      "type": "textfield",
       "layout": {
-        "row": "Row_13cob2k",
+        "row": "Row_0jxf50n",
+        "columns": 3
+      },
+      "id": "Field_0eyom8e",
+      "key": "amountToPay",
+      "description": "Here is the value you paid",
+      "readonly": true,
+      "disabled": true,
+      "appearance": {
+        "suffixAdorner": "EUR"
+      }
+    },
+    {
+      "label": "Remaining amount",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0jxf50n",
         "columns": null
       },
-      "id": "Field_05a1bjh",
-      "properties": {}
+      "id": "Field_0wj6kge",
+      "key": "remainingAmount",
+      "description": "Here is the current value increased the ",
+      "defaultValue": "0",
+      "disabled": true,
+      "readonly": true,
+      "appearance": {
+        "suffixAdorner": "EUR"
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "1 Star",
+          "value": "value1"
+        },
+        {
+          "label": "2 Stars",
+          "value": "value2"
+        },
+        {
+          "label": "2 Star",
+          "value": "value3"
+        },
+        {
+          "label": "4 Stars",
+          "value": "value4"
+        },
+        {
+          "label": "5 Stars",
+          "value": "value5"
+        }
+      ],
+      "label": "Rate your experience",
+      "type": "select",
+      "layout": {
+        "row": "Row_1x2naon",
+        "columns": 4
+      },
+      "id": "Field_0dx6ewx",
+      "key": "customerRate",
+      "defaultValue": "value5",
+      "description": "Plese choose the number of stars from 1 (bad) to 5 (excelente)"
     }
   ],
   "type": "default",
-  "id": "Form_1a2cbh9",
+  "id": "Form_1b6vb10",
   "exporter": {
     "name": "Camunda Modeler",
     "version": "5.18.0"

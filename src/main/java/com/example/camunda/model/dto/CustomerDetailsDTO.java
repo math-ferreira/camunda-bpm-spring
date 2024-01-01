@@ -4,7 +4,7 @@ import com.example.camunda.model.enums.ContactTypeEnum;
 
 import java.util.UUID;
 
-public record UserDetailsDTO(
+public record CustomerDetailsDTO(
         UUID customerId,
         String name,
         ContactTypeEnum contactTypeEnum,

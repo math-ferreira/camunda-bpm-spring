@@ -4,6 +4,7 @@ import com.example.camunda.model.dto.InvoiceRequestDTO;
 import com.example.camunda.service.AccountService;
 import com.example.camunda.service.CustomerService;
 import com.example.camunda.service.InvoiceService;
+import com.example.camunda.utils.DelegateExecutionUtils;
 import jakarta.inject.Named;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
@@ -32,26 +33,29 @@ public class SendInvoice implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) {
-        logger.info("Starting to send invoice for the customers. Datetime: {}", LocalDateTime.now());
+        logger.info("Starting to send invoice for the customer. Datetime: {}", LocalDateTime.now());
 
-        customerService.getListOfCustomers().forEach(customer -> {
-            var balance = accountService.getCustomerBalance(customer.customerId());
+        var customer = customerService.getCustomer();
 
-            var invoiceRequest = new InvoiceRequestDTO(
-                    customer.customerId(),
-                    customer.name(),
-                    customer.contactTypeEnum(),
-                    customer.contactValue(),
-                    balance.totalAmount(),
-                    balance.currency()
-            );
+        var balance = accountService.getCustomerBalance(customer.customerId());
 
-            var invoiceResponse = invoiceService.sendInvoice(invoiceRequest);
+        var invoiceRequest = new InvoiceRequestDTO(
+                customer.customerId(),
+                customer.name(),
+                customer.contactTypeEnum(),
+                customer.contactValue(),
+                balance.totalAmount(),
+                balance.currency()
+        );
 
-            invoiceService.saveInvoice(invoiceRequest, invoiceResponse.invoiceId());
-        });
+        var invoiceResponse = invoiceService.sendInvoice(invoiceRequest);
+
+        invoiceService.saveInvoice(invoiceRequest, invoiceResponse.invoiceId());
+
+
+        DelegateExecutionUtils delegateExecutionUtils = new DelegateExecutionUtils(delegateExecution);
+        delegateExecutionUtils.setPayInvoiceProcessValues(balance.totalAmount(), customer.customerId());
 
         logger.info("Invoices sent successfully. Datetime: {}", LocalDateTime.now());
-
     }
 }

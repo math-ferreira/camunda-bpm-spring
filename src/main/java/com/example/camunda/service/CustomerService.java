@@ -1,11 +1,9 @@
 package com.example.camunda.service;
 
-import com.example.camunda.model.dto.UserDetailsDTO;
-
-import java.util.List;
+import com.example.camunda.model.dto.CustomerDetailsDTO;
 
 public interface CustomerService {
 
-    List<UserDetailsDTO> getListOfCustomers();
+    CustomerDetailsDTO getCustomer();
 
 }

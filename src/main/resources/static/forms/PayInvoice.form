@@ -1,25 +1,31 @@
 {
   "components": [
     {
-      "label": "Month reference",
+      "label": "Month and year reference",
       "type": "textarea",
       "layout": {
         "row": "Row_0jxf50n",
         "columns": 4
       },
       "id": "Field_0gvlqt7",
-      "key": "monthReference",
-      "readonly": true
+      "key": "monthYearReference",
+      "readonly": true,
+      "disabled": true
     },
     {
       "label": "Invoice amount",
-      "type": "textarea",
+      "type": "textfield",
       "layout": {
         "row": "Row_0jxf50n",
-        "columns": 3
+        "columns": null
       },
-      "id": "Field_0gg6o6f",
-      "key": "invoiceAmount"
+      "id": "Field_1u0xc2z",
+      "key": "invoiceAmount",
+      "readonly": true,
+      "disabled": true,
+      "appearance": {
+        "suffixAdorner": " EUR"
+      }
     },
     {
       "label": "Amount to pay",
@@ -30,7 +36,10 @@
       },
       "id": "Field_0fweonh",
       "key": "amountToPay",
-      "description": "Put the amount you want to pay"
+      "description": "Put the amount you want to pay",
+      "appearance": {
+        "suffixAdorner": "EUR"
+      }
     },
     {
       "action": "submit",

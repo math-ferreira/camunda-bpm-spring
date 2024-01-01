@@ -1,0 +1,24 @@
+{
+  "components": [
+    {
+      "label": "Text field",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1pyiqmj",
+        "columns": 3
+      },
+      "id": "Field_0hok0kd",
+      "key": "invoiceAmount",
+      "defaultValue": "0"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1ku2xmi",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.18.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.20.0",
+  "schemaVersion": 13
+}

@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -51,6 +52,21 @@ public class InvoiceServiceImpl implements InvoiceService {
                 )
         );
 
+    }
+
+    @Override
+    public void updateNextInvoice(UUID customerId, BigDecimal remainingBalance) {
+        logger.info("Creating the next invoice for the customer. Customer id: {}", customerId);
+
+        invoiceRepository.save(
+                new InvoiceEntity(
+                        UUID.randomUUID(),
+                        remainingBalance,
+                        LocalDateTime.now(),
+                        LocalDateTime.now(),
+                        null
+                )
+        );
     }
 
 }
